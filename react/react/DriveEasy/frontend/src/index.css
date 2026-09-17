@@ -1,0 +1,878 @@
+/* ============================================================
+   DriveEasy - Global Stylesheet
+   White background, dark text, blue accent color.
+   ============================================================ */
+
+/* Colors and sizes used across the whole website */
+:root {
+  --blue: #1668b8;
+  --blue-dark: #124e8c;
+  --blue-light: #e8f1ff;
+  --dark: #1f2937;
+  --text: #374151;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --bg-light: #f5f7fa;
+  --green: #16a34a;
+  --green-light: #e7f8ee;
+  --red: #dc2626;
+  --red-light: #fdecec;
+  --radius: 10px;
+  --radius-small: 8px;
+  --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow: 0 4px 14px rgba(22, 104, 184, 0.15);
+}
+
+/* Reset some default browser styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #ffffff;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* Full-height app layout keeps the footer at the bottom */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+}
+
+a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+/* ============================================================
+   Navbar
+   ============================================================ */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 64px;
+}
+
+.navbar-brand {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-link {
+  padding: 8px 14px;
+  border-radius: var(--radius-small);
+  text-decoration: none;
+  color: var(--dark);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.nav-link:hover {
+  background-color: var(--blue-light);
+  color: var(--blue);
+}
+
+.nav-link.active {
+  background-color: var(--blue-light);
+  color: var(--blue);
+  font-weight: 600;
+}
+
+/* ============================================================
+   Buttons
+   ============================================================ */
+.btn {
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: var(--radius-small);
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.btn-primary {
+  background-color: var(--blue);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: var(--blue-dark);
+}
+
+.btn-secondary {
+  background-color: var(--blue-light);
+  color: var(--blue);
+}
+
+.btn-secondary:hover {
+  background-color: #dbe8ff;
+}
+
+.btn-large {
+  padding: 12px 28px;
+  font-size: 1.05rem;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* ============================================================
+   Loading / Error messages
+   ============================================================ */
+.loading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  padding: 16px 12px;
+}
+
+.spinner {
+  width: 22px;
+  height: 22px;
+  border: 3px solid var(--blue-light);
+  border-top-color: var(--blue);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error-message {
+  background-color: var(--red-light);
+  color: var(--red);
+  border: 1px solid #f5b9b9;
+  padding: 12px 16px;
+  border-radius: var(--radius-small);
+  margin: 12px 0;
+}
+
+.empty-message {
+  color: var(--muted);
+  text-align: center;
+  padding: 24px;
+}
+
+/* ============================================================
+   Page layout helpers
+   ============================================================ */
+.page,
+.hero,
+.section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.page-title {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--dark);
+  margin-bottom: 6px;
+}
+
+.page-subtitle {
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--dark);
+  margin-bottom: 12px;
+}
+
+.not-found {
+  text-align: center;
+  padding: 64px 24px;
+}
+
+.not-found h2 {
+  font-size: 2rem;
+  color: var(--dark);
+}
+
+/* ============================================================
+   Home page - Hero section
+   ============================================================ */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  background: linear-gradient(135deg, #eef5ff 0%, #ffffff 55%, #eaf2fd 100%);
+  border-radius: var(--radius);
+}
+
+.hero-content {
+  flex: 1 1 50%;
+}
+
+.hero-title {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--dark);
+  margin-bottom: 14px;
+}
+
+.hero-text {
+  font-size: 1.1rem;
+  color: var(--text);
+  margin-bottom: 24px;
+}
+
+.hero-image {
+  flex: 1 1 50%;
+  min-width: 260px;
+}
+
+.hero-image img {
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* ============================================================
+   Car cards
+   ============================================================ */
+.car-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.car-card {
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.car-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.car-card-disabled {
+  opacity: 0.75;
+}
+
+.car-card-image {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background-color: var(--blue-light);
+}
+
+.car-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.car-not-available {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: rgba(220, 38, 38, 0.9);
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.car-card-body {
+  padding: 16px;
+}
+
+.car-card-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+
+.car-card-price {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--blue);
+  margin-bottom: 14px;
+}
+
+.car-card-per-day {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ============================================================
+   Home page - Why Choose Us features
+   ============================================================ */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.feature-card {
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  text-align: center;
+}
+
+.feature-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: var(--blue-light);
+  color: var(--blue);
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+}
+
+.feature-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+
+.feature-card p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* ============================================================
+   Booking form
+   ============================================================ */
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 560px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow-soft);
+}
+
+.form-label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--dark);
+}
+
+.form-input {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-small);
+  font-size: 1rem;
+  background-color: #ffffff;
+  color: var(--dark);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px var(--blue-light);
+}
+
+/* Search box on the Cars page */
+.search-input {
+  display: block;
+  margin: 12px auto 20px;
+  max-width: 480px;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-small);
+  font-size: 1rem;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px var(--blue-light);
+}
+
+/* ============================================================
+   Price summary (Booking page)
+   ============================================================ */
+.price-summary {
+  background-color: var(--blue-light);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 0.95rem;
+  color: var(--dark);
+}
+
+.price-total {
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: var(--blue);
+  border-top: 1px solid #bcd8f5;
+  padding-top: 8px;
+}
+
+/* ============================================================
+   Booking confirmation screen
+   ============================================================ */
+.success-panel {
+  max-width: 560px;
+  margin: 40px auto;
+  text-align: center;
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: var(--shadow);
+}
+
+.success-icon {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.success-panel h1 {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--green);
+  margin-bottom: 14px;
+}
+
+.success-panel p {
+  margin-bottom: 10px;
+}
+
+.booking-id {
+  font-family: Consolas, monospace;
+  font-size: 0.9rem;
+  font-weight: 600;
+  background-color: var(--blue-light);
+  color: var(--blue);
+  padding: 3px 10px;
+  border-radius: 6px;
+}
+
+.success-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+/* ============================================================
+   Login / Register (auth pages)
+   ============================================================ */
+.auth-card {
+  max-width: 440px;
+  margin: 30px auto;
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 30px;
+  box-shadow: var(--shadow-soft);
+}
+
+.auth-card h1 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--dark);
+  margin-bottom: 6px;
+}
+
+.auth-subtitle {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.auth-switch {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.auth-switch a {
+  font-weight: 700;
+  color: var(--blue);
+}
+
+/* Logged-in user chip + logout button in the navbar */
+.nav-user {
+  display: flex;
+  align-items: center;
+  padding: 8px 14px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--blue);
+  background-color: var(--blue-light);
+  border-radius: var(--radius-small);
+  white-space: nowrap;
+}
+
+.nav-logout {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: var(--dark);
+}
+
+.nav-logout:hover {
+  background-color: var(--red-light);
+  color: var(--red);
+}
+
+/* ============================================================
+   Tables (My Bookings)
+   ============================================================ */
+.table-wrapper {
+  overflow-x: auto;
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  background-color: #ffffff;
+}
+
+.table th,
+.table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+.table th {
+  background-color: var(--blue-light);
+  color: var(--dark);
+  font-weight: 600;
+}
+
+.table tbody tr:hover {
+  background-color: #f7fafd;
+}
+
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.badge-green {
+  background-color: var(--green-light);
+  color: var(--green);
+}
+
+.badge-gray {
+  background-color: #f1f2f4;
+  color: var(--muted);
+}
+
+.table-car-image {
+  width: 44px;
+  height: 32px;
+  border-radius: 4px;
+  object-fit: cover;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+/* ============================================================
+   About page (showroom)
+   ============================================================ */
+.about-intro {
+  max-width: 760px;
+  margin: 0 auto 30px;
+  text-align: center;
+}
+
+.about-intro p {
+  margin-bottom: 12px;
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+.about-stat {
+  background-color: var(--blue-light);
+  border-radius: var(--radius);
+  padding: 20px;
+  text-align: center;
+}
+
+.about-stat-number {
+  display: block;
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--blue);
+}
+
+.about-stat-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.showroom-card {
+  max-width: 720px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 26px;
+  box-shadow: var(--shadow-soft);
+}
+
+.showroom-card h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 16px;
+}
+
+.info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.info-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: var(--blue-light);
+  color: var(--blue);
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.info-item h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.info-item p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.info-item a {
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.about-cta {
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.footer {
+  background-color: var(--dark);
+  color: #e5e7eb;
+  padding: 32px 24px;
+}
+
+.footer-top {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-logo {
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.footer-brand p {
+  color: #cbd5e1;
+  font-size: 0.9rem;
+  margin-top: 6px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footer-heading {
+  font-weight: 700;
+  color: #cbd5e1;
+  font-size: 0.95rem;
+}
+
+.footer-links a {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+}
+
+.footer-copy {
+  text-align: center;
+  color: #9aa5b1;
+  font-size: 0.85rem;
+  margin-top: 20px;
+}
+
+/* ============================================================
+   Responsive design (tablet + mobile)
+   ============================================================ */
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    padding: 10px 16px;
+    height: auto;
+  }
+
+  .navbar-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin-top: 6px;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    gap: 24px;
+  }
+
+  .hero-title {
+    font-size: 1.9rem;
+  }
+
+  .car-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-form {
+    padding: 18px;
+  }
+
+  .table {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.6rem;
+  }
+
+  .page,
+  .hero,
+  .section {
+    padding: 24px 16px;
+  }
+
+  .btn-large {
+    width: 100%;
+  }
+
+  .car-grid {
+    grid-template-columns: 1fr;
+  }
+}
